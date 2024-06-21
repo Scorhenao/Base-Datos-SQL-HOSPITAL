@@ -1,0 +1,22 @@
+INSERT INTO CONTACTOS_DE_EMERGENCIA (Nombre, Telefono)
+VALUES
+    ('Juan Pérez', '+1234567890'),
+    ('María González', '+1987654321'),
+    ('Pedro Ramirez', '+1122334455'),
+    ('Laura Martínez', '+1567890123'),
+    ('Carlos Sánchez', '+1346798520'),
+    ('Ana López', '+1765432987'),
+    ('Jorge Rodríguez', '+1876543210'),
+    ('Sofía Fernandez', '+1654321879'),
+    ('Miguel Torres', '+1987654321'),
+    ('Elena Gómez', '+1543216789'),
+    ('Diego García', '+1908765432'),
+    ('Patricia Ruiz', '+1123456789'),
+    ('Ricardo Vargas', '+1789456123'),
+    ('Alejandra Pérez', '+1345678901'),
+    ('Mario Hernández', '+1876543210'),
+    ('Luisa Ramírez', '+1987654321'),
+    ('Andrés Gutiérrez', '+1765432987'),
+    ('Fabiola Díaz', '+1654321879'),
+    ('Roberto Castro', '+1987654321'),
+    ('Claudia Morales', '+1876543210');

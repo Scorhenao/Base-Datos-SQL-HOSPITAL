@@ -1,0 +1,22 @@
+INSERT INTO TIPOS_DE_DOCUMENTOS (ID_tipoDeDocumento, Nombre)
+VALUES
+    (1, 'DNI'),
+    (2, 'Pasaporte'),
+    (3, 'Carnet de identidad'),
+    (4, 'Licencia de conducir'),
+    (5, 'Tarjeta de residencia'),
+    (6, 'Cédula de identidad'),
+    (7, 'Documento nacional de identidad'),
+    (8, 'Carnet de extranjería'),
+    (9, 'Visa'),
+    (10, 'Registro civil'),
+    (11, 'Pasaporte diplomático'),
+    (12, 'Carnet estudiantil'),
+    (13, 'Registro militar'),
+    (14, 'Carnet de sanidad'),
+    (15, 'Carnet de vacunación'),
+    (16, 'Pasaporte oficial'),
+    (17, 'Documento migratorio'),
+    (18, 'Carnet de trabajo'),
+    (19, 'Pasaporte oficial diplomático'),
+    (20, 'Certificado de nacimiento');

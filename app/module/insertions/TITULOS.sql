@@ -1,0 +1,17 @@
+INSERT INTO TITULOS (Nombre) VALUES
+    ('Médico General'),
+    ('Especialista en Cardiología'),
+    ('Especialista en Pediatría'),
+    ('Cirujano General'),
+    ('Ginecólogo'),
+    ('Oftalmólogo'),
+    ('Dermatólogo'),
+    ('Psiquiatra'),
+    ('Neurólogo'),
+    ('Oncólogo'),
+    ('Anestesiólogo'),
+    ('Traumatólogo'),
+    ('Endocrinólogo'),
+    ('Urologo'),
+    ('Radiólogo'),
+    ('Geriatra');
