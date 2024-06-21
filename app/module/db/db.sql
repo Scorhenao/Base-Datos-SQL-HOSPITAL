@@ -130,7 +130,74 @@ ADD COLUMN ID_salaUCI_FK INT NOT NULL COMMENT 'Foreign key de SALAS_UCI de la en
 ADD CONSTRAINT fk_salaUCI
     FOREIGN KEY (ID_salaUCI_FK) REFERENCES SALAS_UCI(ID_salaUCI);
 
+/*add another camp in CAMAS with the foreign key of salaUCI*/
 ALTER TABLE CAMAS
 ADD COLUMN ID_salaUCI_FK INT NOT NULL COMMENT 'Foreign key de SALAS_UCI de la cama',
 ADD CONSTRAINT fk_salaUCI_cama
     FOREIGN KEY(ID_salaUCI_FK) REFERENCES SALAS_UCI(ID_salaUCI);
+
+/*table SALIDAS*/
+CREATE TABLE SALIDAS (
+    ID_salida INT NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'Primary Key de SALIDAS',
+    Motivo VARCHAR(250) NOT NULL COMMENT 'Motivo de salida',
+    Fecha DATE NOT NULL COMMENT 'Fecha de salida',
+    TiempoDeEstadia VARCHAR(40) NOT NULL COMMENT 'Tiempo de estadia del paciente antes de la salida',
+    ID_medico_FK INT COMMENT 'Foreign key de MEDICOS',
+    FOREIGN KEY(ID_medico_FK) REFERENCES MEDICOS(ID_medico),
+    ID_enfermera_FK INT COMMENT 'Foreign key de ENFERMERAS',
+    FOREIGN KEY (ID_enfermera_FK) REFERENCES ENFERMERAS(ID_enfermera),
+    ID_paciente_FK INT COMMENT 'Foreign key de PACIENTES',
+    FOREIGN KEY (ID_paciente_FK) REFERENCES PACIENTES(ID_paciente)
+)COMMENT 'tabla de SALIDAS';
+
+/*table EXAMENES*/
+CREATE TABLE EXAMENES (
+    ID_examen INT NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'Primary Key de EXAMENES',
+    Fecha DATE NOT NULL COMMENT 'Fecha del examen',
+    ID_paciente_FK INT COMMENT 'Foreign key de PACIENTES',
+    FOREIGN KEY (ID_paciente_FK) REFERENCES PACIENTES(ID_paciente),
+    ID_medico_FK INT COMMENT 'Foreign key MEDICOS',
+    FOREIGN KEY (ID_medico_FK) REFERENCES MEDICOS(ID_medico)
+)COMMENT 'tabla de EXAMENES';
+
+/*table RESULTADOS*/
+CREATE TABLE RESULTADOS (
+    ID_resultado INT NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'Primary Key de RESULTADOS',
+    Observacion VARCHAR(250) COMMENT 'Observacion opcional del medico segun el resultado',
+    ID_examen_FK INT NOT NULL COMMENT 'Foreign key de EXAMENES',
+    FOREIGN KEY (ID_examen_FK) REFERENCES EXAMENES(ID_examen),
+    ID_medico_FK INT NOT NULL COMMENT 'Foreign key de MEDICOS',
+    FOREIGN KEY(ID_medico_FK) REFERENCES MEDICOS(ID_medico)
+)COMMENT 'tabla de RESULTADOS';
+
+/*table de DIAGNOSTICOS*/
+CREATE TABLE DIAGNOSTICOS (
+    ID_diagnostico INT NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'Primary Key de DIAGNOSTICOS',
+    ID_paciente_FK INT NOT NULL COMMENT 'Foreign key de PACIENTES',
+    FOREIGN KEY(ID_paciente_FK) REFERENCES PACIENTES(ID_paciente),
+    ID_medico_FK INT NOT NULL COMMENT 'Foreign key de MEDICOS',
+    FOREIGN KEY(ID_medico_FK) REFERENCES MEDICOS(ID_medico)
+)COMMENT 'tabla de DIAGNOSTICOS';
+
+/*add another camp in RESULTADOS with the foreign key of diagnostico*/
+ALTER TABLE RESULTADOS
+ADD COLUMN ID_diagnostico_FK INT COMMENT 'Foreign key de SALAS_UCI de la cama',
+ADD CONSTRAINT fk_diagnostico_resultado
+    FOREIGN KEY(ID_diagnostico_FK) REFERENCES DIAGNOSTICOS(ID_diagnostico);
+
+/*table de MEDICAMENTOS*/
+CREATE TABLE MEDICAMENTOS (
+    ID_codigo INT NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'Primary Key de MEDICAMENTOS',
+    Nombre TEXT(100) NOT NULL COMMENT 'Nombre del medicamento',
+    Dosis VARCHAR(14) NOT NULL COMMENT 'Dosis del medicamento',
+    ID_enfermera_FK INT NOT NULL COMMENT 'Foreign key de ENFERMERAS',
+    FOREIGN KEY(ID_enfermera_FK) REFERENCES ENFERMERAS(ID_enfermera)
+)COMMENT 'tabla de MEDICAMENTOS';
+
+/*table de MEDICAMENTOS_DIAGNOSTICOS*/
+CREATE TABLE MEDICAMENTOS_DIAGNOSTICOS (
+    ID_diagnostico_FK INT NOT NULL COMMENT 'Foreign key de DIAGNOSTICOS',
+    FOREIGN KEY(ID_diagnostico_FK) REFERENCES DIAGNOSTICOS(ID_diagnostico),
+    ID_codigo_FK INT NOT NULL COMMENT 'Foreign key del codigo de un medicamento',
+    FOREIGN KEY(ID_codigo_FK) REFERENCES MEDICAMENTOS(ID_codigo)
+)COMMENT 'tabla de MEDICAMENTOS_DIAGNOSTICOS';
