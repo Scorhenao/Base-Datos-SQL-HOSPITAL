@@ -153,16 +153,6 @@ CREATE TABLE EXAMENES (
     FOREIGN KEY (ID_medico_FK) REFERENCES MEDICOS(ID_medico)
 )COMMENT 'tabla de EXAMENES';
 
-/*table RESULTADOS*/
-CREATE TABLE RESULTADOS (
-    ID_resultado INT NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'Primary Key de RESULTADOS',
-    Observacion VARCHAR(250) COMMENT 'Observacion opcional del medico segun el resultado',
-    ID_examen_FK INT NOT NULL COMMENT 'Foreign key de EXAMENES',
-    FOREIGN KEY (ID_examen_FK) REFERENCES EXAMENES(ID_examen),
-    ID_medico_FK INT NOT NULL COMMENT 'Foreign key de MEDICOS',
-    FOREIGN KEY(ID_medico_FK) REFERENCES MEDICOS(ID_medico)
-)COMMENT 'tabla de RESULTADOS';
-
 /*table de DIAGNOSTICOS*/
 CREATE TABLE DIAGNOSTICOS (
     ID_diagnostico INT NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'Primary Key de DIAGNOSTICOS',
@@ -172,11 +162,17 @@ CREATE TABLE DIAGNOSTICOS (
     FOREIGN KEY(ID_medico_FK) REFERENCES MEDICOS(ID_medico)
 )COMMENT 'tabla de DIAGNOSTICOS';
 
-/*add another camp in RESULTADOS with the foreign key of diagnostico*/
-ALTER TABLE RESULTADOS
-ADD COLUMN ID_diagnostico_FK INT COMMENT 'Foreign key de SALAS_UCI de la cama',
-ADD CONSTRAINT fk_diagnostico_resultado
-    FOREIGN KEY(ID_diagnostico_FK) REFERENCES DIAGNOSTICOS(ID_diagnostico);
+/*table RESULTADOS*/
+CREATE TABLE RESULTADOS (
+    ID_resultado INT NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'Primary Key de RESULTADOS',
+    Observacion VARCHAR(250) COMMENT 'Observacion opcional del medico segun el resultado',
+    ID_examen_FK INT NOT NULL COMMENT 'Foreign key de EXAMENES',
+    FOREIGN KEY (ID_examen_FK) REFERENCES EXAMENES(ID_examen),
+    ID_medico_FK INT NOT NULL COMMENT 'Foreign key de MEDICOS',
+    FOREIGN KEY(ID_medico_FK) REFERENCES MEDICOS(ID_medico)
+    ID_diagnostico_FK INT COMMENT 'Foreign key de DIAGNOSTICOS',
+    FOREIGN KEY(ID_diagnostico_FK) REFERENCES(ID_diagnostico)
+)COMMENT 'tabla de RESULTADOS';
 
 /*table de MEDICAMENTOS*/
 CREATE TABLE MEDICAMENTOS (
