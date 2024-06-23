@@ -1,4 +1,6 @@
 - Conocer el número de pacientes que se encuentran en UCI y en cada sala.
-SELECT CAMAS.ID_cama, CAMAS.Estado CAMAS.ID_paciente_FK, CAMAS.ID_salaUCI_FK/*Table where u are and table in which u wanna search*/
-FROM CAMAS /*from medicos we gonna search*/
-JOIN SALAS_UCI ON CAMAS.ID_salaUCI_FK = SALAS_UCI.ID_salaUCI /*Compare if the FK is the same with the ID of the real table*/
+SELECT SALAS_UCI.ID_salaUCI, COUNT(CAMAS.ID_paciente_FK) AS cantidad_pacientes
+FROM CAMAS
+JOIN SALAS_UCI ON CAMAS.ID_salaUCI_FK = SALAS_UCI.ID_salaUCI
+WHERE CAMAS.ID_paciente_FK IS NOT NULL AND CAMAS.Estado = 'ocupado'
+GROUP BY SALAS_UCI.ID_salaUCI;
