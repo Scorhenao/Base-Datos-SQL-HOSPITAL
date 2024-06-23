@@ -1,7 +1,7 @@
 -- Insertar registros en la tabla CAMAS
-INSERT INTO CAMAS (Estado,ID_paciente_FK, ID_salaUCI_FK)
+INSERT INTO CAMAS (Estado, ID_paciente_FK, ID_salaUCI_FK)
 VALUES
-    ('Disponible',NULL,1),    -- María González
+    ('Disponible',NULL,1),    
     ('Ocupado',2,2),    -- Pedro Ramírez
     ('Disponible',NULL,3),    -- Laura Martínez
     ('Ocupado',4,4),    -- Carlos Sánchez
@@ -20,4 +20,5 @@ VALUES
     ('Disponible',NULL,17),   -- Fabiola Díaz
     ('Ocupado',18,18),   -- Roberto Castro
     ('Disponible',NULL,19),   -- Claudia Morales
-    ('Ocupado',20,20);   -- Ana María López
+    ('Ocupado',20,20),   -- Ana María López
+    ('Disponible', 1, 1); -- María González
