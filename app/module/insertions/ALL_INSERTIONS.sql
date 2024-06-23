@@ -1,6 +1,6 @@
 --use for workbench
 USE HOSPITAL;
---INSERT TIPOS_DE_DOCUMENTOS
+-- INSERT TIPOS_DE_DOCUMENTOS
 INSERT INTO TIPOS_DE_DOCUMENTOS (ID_tipoDeDocumento, Nombre)
 VALUES
     (1, 'DNI'),
@@ -24,7 +24,7 @@ VALUES
     (19, 'Pasaporte oficial diplomático'),
     (20, 'Certificado de nacimiento');
 
---INSERT CONTACTOS_DE_EMERGENCIA
+-- INSERT CONTACTOS_DE_EMERGENCIA
 INSERT INTO CONTACTOS_DE_EMERGENCIA (Nombre, Telefono)
 VALUES
     ('Juan Pérez', '+1234567890'),
@@ -48,7 +48,7 @@ VALUES
     ('Roberto Castro', '+1987654321'),
     ('Claudia Morales', '+1876543210');
 
---INSERT PACIENTES
+-- INSERT PACIENTES
 INSERT INTO PACIENTES (Nombre, Apellidos, TelefonoDeContacto, NumeroDeDocumento, ID_tipoDeDocumento_FK, ID_contactoDeEmergencia_FK)
 VALUES
     ('María', 'González', '+1234567890', '12345678901', 1, 1),--ID 1       -- Tipo de documento 'DNI', Contacto de emergencia 'Juan Pérez'
@@ -72,7 +72,7 @@ VALUES
     ('Claudia', 'Morales', '+1987654321', '10987654321', 19, 19),--ID 19   -- Tipo de documento 'Pasaporte oficial diplomático', Contacto de emergencia 'Roberto Castro'
     ('Ana María', 'López', '+1876543210', '98765432109', 20, 20);--ID 20  -- Tipo de documento 'Certificado de nacimiento', Contacto de emergencia 'Claudia Morales'
 
---INSERT RAZONES_DE_INGRESO
+-- INSERT RAZONES_DE_INGRESO
 INSERT INTO RAZONES_DE_INGRESO (Observacion, ID_paciente_FK)
 VALUES
     ('Fiebre alta', 1),                 -- Paciente ID 1
@@ -96,7 +96,7 @@ VALUES
     ('Problemas digestivos', 19),       -- Paciente ID 19
     ('Picadura de insecto grave', 20);  -- Paciente ID 20
 
---INSERT ALERGIAS
+-- INSERT ALERGIAS
 INSERT INTO ALERGIAS (NombreDeAlergia, TipoDeAlergia) VALUES
     ('Polen', 'Respiratoria'),
     ('Mariscos', 'Alimentaria'),
@@ -119,7 +119,7 @@ INSERT INTO ALERGIAS (NombreDeAlergia, TipoDeAlergia) VALUES
     ('Metamizol', 'Medicamentosa'),
     ('Algas', 'Alimentaria');
 
---INSERT PACIENTES_ALERGIAS
+-- INSERT PACIENTES_ALERGIAS
 -- Asociación de alergias a los pacientes según la información proporcionada
 
 -- María González
@@ -220,14 +220,14 @@ VALUES
     (14, 3),    -- Penicilina (Medicamentosa)
     (14, 6);    -- Abejas (Insectos)
 
---INSERT GENEROS
+-- INSERT GENEROS
 INSERT INTO GENEROS (Nombre) VALUES
     ('Masculino'),
     ('Femenino'),
     ('No binario'),
     ('Prefiero no decirlo');
 
---INSERT TITULOS
+-- INSERT TITULOS
 INSERT INTO TITULOS (Nombre) VALUES
     ('Médico General'),
     ('Especialista en Cardiología'),
@@ -246,7 +246,7 @@ INSERT INTO TITULOS (Nombre) VALUES
     ('Radiólogo'),
     ('Geriatra');
 
---INSERT CONTRATOS
+-- INSERT CONTRATOS
 INSERT INTO CONTRATOS (FechaDeInicioDeContrato, Salario) VALUES
     ('2023-01-15', 5500000.00),   -- Ejemplo de contrato para enfermera con salario $5,500,000 COP
     ('2022-08-20', 6200000.00),   -- Ejemplo de contrato para médico con salario $6,200,000 COP
@@ -552,7 +552,7 @@ INSERT INTO EXAMENES (Fecha, ID_paciente_FK, ID_medico_FK)
 VALUES
     ('2023-06-20', 20, 20);  -- ID_paciente 20 (Ana María Gómez), ID_medico 20 (Claudia Morales)
 
---INSERT DIAGNOSTICOS
+-- INSERT DIAGNOSTICOS
 INSERT INTO DIAGNOSTICOS (ID_paciente_FK, ID_medico_FK)
 VALUES
     (1, 1),    -- Diagnóstico del paciente 1 realizado por el médico 1
@@ -576,7 +576,7 @@ VALUES
     (19, 19),  -- Diagnóstico del paciente 19 realizado por el médico 19
     (20, 20);  -- Diagnóstico del paciente 20 realizado por el médico 20
 
---INSERT RESULTADOS
+-- INSERT RESULTADOS
 INSERT INTO RESULTADOS (Observacion, ID_examen_FK, ID_medico_FK, ID_diagnostico_FK)
 VALUES
     ('Resultado normal', 1, 1, 1),    -- Resultado del examen 1 realizado por el médico 1 para el diagnóstico 1
@@ -600,7 +600,7 @@ VALUES
     ('Antígeno prostático específico normal', 19, 19, 19),    -- Resultado del examen 19 realizado por el médico 19 para el diagnóstico 19
     ('Examen de sangre sin hallazgos', 20, 20, 20);    -- Resultado del examen 20 realizado por el médico 20 para el diagnóstico 20
 
---INSERT MEDICAMENTOS
+-- INSERT MEDICAMENTOS
 INSERT INTO MEDICAMENTOS (Nombre, Dosis, ID_enfermera_FK)
 VALUES
     ('Paracetamol', '500mg/8horas', 1),      -- Administrado por la enfermera 1
@@ -624,7 +624,7 @@ VALUES
     ('Metoprolol', '50mg/12horas', 19),      -- Administrado por la enfermera 19
     ('Acetaminofén', '325mg/6horas', 20);    -- Administrado por la enfermera 20
 
---INSERT MEDICAMENTOS DIAGNOSTICOS
+-- INSERT MEDICAMENTOS DIAGNOSTICOS
 INSERT INTO MEDICAMENTOS_DIAGNOSTICOS (ID_diagnostico_FK, ID_codigo_FK)
 VALUES
     (1, 1),   -- Diagnóstico 1, Medicamento Paracetamol
