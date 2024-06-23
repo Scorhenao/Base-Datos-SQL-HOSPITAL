@@ -1,0 +1,1 @@
+- Dado una identificación de una enfermera, conocer sus datos personales y salario.

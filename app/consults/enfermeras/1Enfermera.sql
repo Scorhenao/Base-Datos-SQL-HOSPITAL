@@ -1,0 +1,1 @@
+- Dado un número de cama, conocer los datos del paciente que se encuentra ACTUALMENTE allí.

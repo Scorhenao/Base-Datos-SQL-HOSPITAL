@@ -1,0 +1,1 @@
+- Dado una identificación de un paciente, conocer los exámenes realizados.

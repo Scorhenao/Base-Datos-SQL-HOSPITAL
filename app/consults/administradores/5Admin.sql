@@ -1,0 +1,1 @@
+- Dada una sala, conocer cuántas camas están disponibles/ocupadas.
