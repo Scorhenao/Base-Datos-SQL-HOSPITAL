@@ -169,9 +169,9 @@ CREATE TABLE RESULTADOS (
     ID_examen_FK INT NOT NULL COMMENT 'Foreign key de EXAMENES',
     FOREIGN KEY (ID_examen_FK) REFERENCES EXAMENES(ID_examen),
     ID_medico_FK INT NOT NULL COMMENT 'Foreign key de MEDICOS',
-    FOREIGN KEY(ID_medico_FK) REFERENCES MEDICOS(ID_medico)
+    FOREIGN KEY(ID_medico_FK) REFERENCES MEDICOS(ID_medico),
     ID_diagnostico_FK INT COMMENT 'Foreign key de DIAGNOSTICOS',
-    FOREIGN KEY(ID_diagnostico_FK) REFERENCES(ID_diagnostico)
+    FOREIGN KEY(ID_diagnostico_FK) REFERENCES DIAGNOSTICOS(ID_diagnostico)
 )COMMENT 'tabla de RESULTADOS';
 
 /*table de MEDICAMENTOS*/
