@@ -1,4 +1,4 @@
---use for workbench
+-- use for workbench
 USE HOSPITAL;
 -- INSERT TIPOS_DE_DOCUMENTOS
 INSERT INTO TIPOS_DE_DOCUMENTOS (ID_tipoDeDocumento, Nombre)
