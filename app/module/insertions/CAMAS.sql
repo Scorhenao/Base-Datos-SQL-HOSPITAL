@@ -21,4 +21,5 @@ VALUES
     ('Ocupado',18,18),   -- Roberto Castro
     ('Disponible',NULL,19),   -- Claudia Morales
     ('Ocupado',20,20),   -- Ana María López
-    ('Disponible', 1, 1); -- María González
+    ('Disponible', 1, 1), -- María González
+    ('Ocupado', 2, 2); -- Pedro Ramírez
