@@ -35,6 +35,7 @@ CREATE TABLE PACIENTES (
 CREATE TABLE RAZONES_DE_INGRESO (
     ID_razonDeIngreso INT NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'Primary Key de RAZONES_DE_INGRESO',
     Observacion VARCHAR(250) COMMENT 'Observacion del medico deacuerdo a la razon de ingreso del paciente',
+    Fecha DATE NOT NULL COMMENT 'Fecha de ingreso del paciente',
     ID_paciente_FK INT NOT NULL COMMENT 'Foreign key del paciente',
     FOREIGN KEY(ID_paciente_FK) REFERENCES PACIENTES(ID_paciente)
 )COMMENT 'tabla de RAZONES_DE_INGRESO';
@@ -82,10 +83,10 @@ CREATE TABLE SALAS_UCI (
 /*table CAMAS*/
 CREATE TABLE CAMAS (
     ID_cama INT NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'Primary Key de CAMAS',
-    Estado TEXT(20) NOT NULL,
-    ID_paciente_FK INT,
+    Estado TEXT(20) NOT NULL COMMENT 'Estado de ocupacion de la cama',
+    ID_paciente_FK INT COMMENT 'Foreign key de PACIENTES',
     FOREIGN KEY(ID_paciente_FK) REFERENCES PACIENTES(ID_paciente),
-    ID_salaUCI_FK INT NOT NULL,
+    ID_salaUCI_FK INT NOT NULL COMMENT 'Foreign key de SALAS_UCI',
     FOREIGN KEY(ID_salaUCI_FK) REFERENCES SALAS_UCI(ID_salaUCI)
 )COMMENT 'tabla de CAMAS';
 
